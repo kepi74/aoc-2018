@@ -1,6 +1,6 @@
 (ns aoc-2018.core
-    (:require [aoc-2018.days :as days]
-              [clojure.data]))
+  (:require [aoc-2018.days :as days]
+            [clojure.data]))
 
 ;; Day one
 ;; ---------------------------------------------------------------
@@ -11,12 +11,11 @@
 
 (defn repeated-freq [freq_list]
   (reduce
-    (fn [vect freq] (
-        let [curr_freq (+ (last vect) freq)
-            new_vect (conj vect curr_freq)]
-        (if (true? (some #(= curr_freq %) vect)) (reduced (last new_vect)) new_vect)))
-    [0]
-    (cycle freq_list)))
+   (fn [vect freq] (let [curr_freq (+ (last vect) freq)
+                         new_vect (conj vect curr_freq)]
+                     (if (true? (some #(= curr_freq %) vect)) (reduced (last new_vect)) new_vect)))
+   [0]
+   (cycle freq_list)))
 
 ;; Day two
 ;; ---------------------------------------------------------------
@@ -36,7 +35,7 @@
   (let [box_count_letters (map count-box-letters box_ids)
         exactly_2 (sums-box 2 box_count_letters)
         exactly_3 (sums-box 3 box_count_letters)]
-       (* exactly_2 exactly_3)))
+    (* exactly_2 exactly_3)))
 
 (defn is-correct-box [word word_comp]
   (let [w_diff (reduce + (map-indexed (fn [ind itm] (if (= itm (nth word ind)) 0 1)) word_comp))]
