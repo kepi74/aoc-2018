@@ -1,6 +1,7 @@
 (ns aoc-2018.core
   (:require [aoc-2018.days :as days]
-            [clojure.data]))
+            [clojure.data]
+            [aoc-2018.day-03 :as day-03]))
 
 ;; Day one
 ;; ---------------------------------------------------------------
@@ -50,5 +51,7 @@
 (defn -main []
   ; (println (get-final-freq days/day_01))
   ; (println (repeated-freq days/day_01))
-  (println (box-ids-hash days/day_02))
-  (println (find-correct-boxs days/day_02)))
+  ; (println (box-ids-hash days/day_02))
+  ; (println (find-correct-boxs days/day_02))
+  ; (day-03/solution-1)
+  (day-03/solution-2))
